@@ -2,6 +2,12 @@ $(function () {
 
     stats();
 
+    // submit from credentials
+    $('#credentials').submit(function (event) {
+        stats();
+        event.preventDefault();
+    });
+
 });
 
 

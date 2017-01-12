@@ -96,7 +96,9 @@ function info(repo_full_name) {
             ].join("");
             items.push(row);
         });
-        render("#popular-forks", items.join(""));
+        if (items.length) {
+            render("#popular-forks", items.join(""));
+        }
     });
 
 

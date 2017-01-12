@@ -64,11 +64,13 @@ function info(repo_full_name) {
             "</tr>"
         ].join(""));
         // open issues
-        items.push(["<tr>",
-            "<td class='left'>open issues</td>",
-            "<td>" + repo.open_issues_count + "</td>",
-            "</tr>"
-        ].join(""));
+        if (repo.has_issues) {
+            items.push(["<tr>",
+                "<td class='left'>open issues</td>",
+                "<td>" + repo.open_issues_count + "</td>",
+                "</tr>"
+            ].join(""));
+        }
         render("#info", items.join(""));
     });
 

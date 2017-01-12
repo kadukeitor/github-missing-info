@@ -39,6 +39,12 @@ function info(repo_full_name) {
             "<td>" + "<a target='_blank' href='" + repo.html_url + "'>" + repo.name + "</a>" + "</td>",
             "</tr>"
         ].join(""));
+        // author
+        items.push(["<tr>",
+            "<td class='left'>author</td>",
+            "<td>" + "<a target='_blank' href='" + repo.owner.html_url + "'>" + repo.owner.login + "</a>" + "</td>",
+            "</tr>"
+        ].join(""));
         // latest push
         items.push(["<tr>",
             "<td class='left'>latest push</td>",
@@ -49,6 +55,18 @@ function info(repo_full_name) {
         items.push(["<tr>",
             "<td class='left'>stars</td>",
             "<td>" + repo.stargazers_count + "</td>",
+            "</tr>"
+        ].join(""));
+        // watchers
+        items.push(["<tr>",
+            "<td class='left'>watchers</td>",
+            "<td>" + repo.subscribers_count + "</td>",
+            "</tr>"
+        ].join(""));
+        // open issues
+        items.push(["<tr>",
+            "<td class='left'>open issues</td>",
+            "<td>" + repo.open_issues_count + "</td>",
             "</tr>"
         ].join(""));
         render("#info", items.join(""));
@@ -78,6 +96,7 @@ function info(repo_full_name) {
         });
         render("#popular-forks", items.join(""));
     });
+
 
 }
 

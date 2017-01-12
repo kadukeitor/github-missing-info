@@ -1,5 +1,10 @@
 $(function () {
 
+    $('#credentials').submit(function (event) {
+        $('#search').submit();
+        event.preventDefault();
+    });
+
     $("#search").submit(function (event) {
         var repo_full_name = $("#repository_url").val();
         repo_full_name = repo_full_name.replace('https://github.com/', '');
@@ -9,6 +14,7 @@ $(function () {
     });
 
 });
+
 
 function info(repo_full_name) {
 
@@ -20,7 +26,12 @@ function info(repo_full_name) {
     //                  //
     //////////////////////
 
-    request(api, function (repo) {
+    request(api, function (err, repo) {
+
+        if (err) {
+            return false;
+        }
+
         var items = [];
         // name
         items.push(["<tr>",
@@ -49,7 +60,12 @@ function info(repo_full_name) {
     //                  //
     //////////////////////
 
-    request(api + "/forks?sort=stargazers", function (data) {
+    request(api + "/forks?sort=stargazers", function (err, data) {
+
+        if (err) {
+            return false;
+        }
+
         var items = [];
         $.each(data, function (index, repo) {
             var row = ["<tr>",
@@ -74,8 +90,10 @@ function render(selector, html) {
 }
 
 function request(url, callback) {
+    var selector = ".error-message";
     var username = $('#username').val();
     var password = $('#password').val();
+    $(selector).addClass('hide');
     $.getJSON({
         url: url,
         beforeSend: function (xhr) {
@@ -84,7 +102,13 @@ function request(url, callback) {
             }
         },
         success: function (result) {
-            callback(result);
+            callback(null, result);
+        },
+        error: function (error) {
+            var message = error.responseJSON.message;
+            $(selector).html(message);
+            $(selector).removeClass('hide');
+            callback(message);
         }
     });
 }

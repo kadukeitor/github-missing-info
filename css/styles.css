@@ -23,3 +23,12 @@
 .left {
     text-align: left;
 }
+
+.error-message {
+    max-width: 420px;
+    background: rgb(202, 60, 60);
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 3px;
+    color: #fff;
+}

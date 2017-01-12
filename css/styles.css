@@ -1,0 +1,25 @@
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.content {
+    text-align: center;
+}
+
+.content .pure-form input {
+    margin: auto;
+    min-width: 420px;
+}
+
+.pure-table {
+    margin: auto;
+}
+
+.hide {
+    display: none;
+}
+
+.left {
+    text-align: left;
+}

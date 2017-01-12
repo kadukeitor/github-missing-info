@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitHub Decision</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+</head>
+<body>
+
+
+<div class="header">
+
+    <h1>github missing information</h1>
+
+    <p>the anonymous github api requests are limited to 60 per hour</p>
+    <p>you will need to put your credentials if you want to increase your limit up to 5000 requests.</p>
+    <form class="pure-form">
+        <fieldset>
+            <input type="text" placeholder="Email" id="username">
+            <input type="password" placeholder="Password" id="password">
+        </fieldset>
+    </form>
+
+</div>
+
+<div class="content">
+
+    <h2>insert the url of the repo</h2>
+
+    <form class="pure-form" id="search">
+        <input type="text" class="pure-input" id="repository_url" placeholder="https://github.com/jquery/jquery">
+        <button type="submit" class="pure-button">info</button>
+    </form>
+
+    <!--Info-->
+    <section id="info" class="hide">
+        <h3>Info</h3>
+        <table class="pure-table">
+            <thead>
+            <tr>
+                <th class="left">parameter</th>
+                <th>value</th>
+            </tr>
+            </thead>
+        </table>
+    </section>
+
+    <!--Popular Forks-->
+    <section id="popular-forks" class="hide">
+        <h3>Forks</h3>
+        <table class="pure-table">
+            <thead>
+            <tr>
+                <th class="left">repo</th>
+                <th>starts</th>
+                <th>latest push</th>
+            </tr>
+            </thead>
+        </table>
+    </section>
+
+</div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>

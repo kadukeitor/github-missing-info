@@ -1,15 +1,21 @@
 $(function () {
 
+    // url params
+    var r = getUrlParameter('r');
+    if (r) {
+        $("#repository_url").val(r);
+        info(getRepoFullName(r));
+    }
+
+    // submit from credentials
     $('#credentials').submit(function (event) {
         $('#search').submit();
         event.preventDefault();
     });
 
+    // submit
     $("#search").submit(function (event) {
-        var repo_full_name = $("#repository_url").val();
-        repo_full_name = repo_full_name.replace('https://github.com/', '');
-        repo_full_name = repo_full_name.replace(/\/$/, '');
-        info(repo_full_name);
+        info(getRepoFullName($("#repository_url").val()));
         event.preventDefault();
     });
 
@@ -159,4 +165,24 @@ function timeSince(date) {
         return interval + " minutes";
     }
     return Math.floor(seconds) + " seconds";
+}
+
+function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+}
+
+function getRepoFullName(url) {
+    var repo_full_name = url;
+    repo_full_name = repo_full_name.replace('https://github.com/', '');
+    repo_full_name = repo_full_name.replace(/\/$/, '');
+    return repo_full_name;
 }

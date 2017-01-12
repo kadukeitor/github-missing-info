@@ -23,7 +23,7 @@
 
     <div class="pure-menu pure-menu-horizontal">
         <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="./stats.html" class="pure-menu-link">[ show stats ]</a></li>
+            <li class="pure-menu-item"><a href="./index.html" class="pure-menu-link">[ go home ]</a></li>
         </ul>
     </div>
 
@@ -35,42 +35,23 @@
             <input type="text" placeholder="username" id="username">
             <input type="password" placeholder="password" id="password">
         </fieldset>
-        <button type="submit" class="hide"></button>
+        <button type="submit" class="pure-button">refresh</button>
     </form>
 
 </div>
 
 <div class="content">
 
-    <h2>insert the url of the repo</h2>
-
-    <form class="pure-form" id="search">
-        <input class="pure-input" id="repository_url" placeholder="https://github.com/jquery/jquery">
-        <button type="submit" class="pure-button">show</button>
-    </form>
-
     <!--Error-->
     <div class="error-message hide"></div>
 
-    <!--Info-->
-    <section id="info" class="hide">
-        <h3>info</h3>
+    <!--popular repositories-->
+    <section id="popular-repositories" class="hide">
+        <h3>most popular repositories</h3>
         <table class="pure-table">
             <thead>
             <tr>
-                <th class="left">parameter</th>
-                <th>value</th>
-            </tr>
-            </thead>
-        </table>
-    </section>
-
-    <!--Popular Forks-->
-    <section id="popular-forks" class="hide">
-        <h3>popular forks</h3>
-        <table class="pure-table">
-            <thead>
-            <tr>
+                <th class="left">#</th>
                 <th class="left">repo</th>
                 <th>starts</th>
                 <th>latest push</th>
@@ -79,10 +60,23 @@
         </table>
     </section>
 
+    <!--popular users-->
+    <section id="popular-users" class="hide">
+        <h3>most popular users</h3>
+        <table class="pure-table">
+            <thead>
+            <tr>
+                <th class="left">#</th>
+                <th class="left">username</th>
+            </tr>
+            </thead>
+        </table>
+    </section>
+
 </div>
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/stats.js"></script>
 
 </body>
 </html>
